@@ -5,30 +5,36 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 interface ItemProps {
-    title: string;
+  title: string;
+  items: Array<{
+    codigo: string;
+    nome: string;
+  }>;
+    onChange: any;
 }
 
 export function SelectMUI(props: ItemProps) {
-  const [age, setAge] = useState("");
+    const [ value, setValue] = useState("")
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
+    const handleChange = (event: SelectChangeEvent) => {
+      setValue(event.target.value as string)
+      props.onChange({ codigo: event.target.value as string });
+  }
 
   return (
-    <Box sx={{ minWidth: 120, m:2 }}>
+    <Box sx={{ minWidth: 120, m: 2 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">{props.title}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={value}
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {props.items.map((item) => (
+              <MenuItem key={item.codigo} value={item.codigo}>{item.nome}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
