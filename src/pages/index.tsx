@@ -8,7 +8,7 @@ import { SearchCar } from "../components/SearchCar";
 
 export default function Index() {
   return (
-    <Grid sx={{ bgcolor: "#f9f6fc", height: "100vh" }} align="center">
+    <Grid sx={{ bgcolor: "#f9f6fc", height: "100vh", py:20 }} align="center">
       <Container>
         <Box sx={{ my: 0, mx: 0 }}>
           <Typography variant="h4" component="h1" gutterBottom>

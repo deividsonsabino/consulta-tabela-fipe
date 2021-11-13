@@ -10,16 +10,16 @@ interface ItemProps {
     codigo: string;
     nome: string;
   }>;
-    onChange: any;
+  onChange: any;
 }
 
 export function SelectMUI(props: ItemProps) {
-    const [ value, setValue] = useState("")
+  const [value, setValue] = useState("");
 
-    const handleChange = (event: SelectChangeEvent) => {
-      setValue(event.target.value as string)
-      props.onChange({ codigo: event.target.value as string });
-  }
+  const handleChange = (event: SelectChangeEvent) => {
+    setValue(event.target.value);
+    props.onChange({ codigo: event.target.value });
+  };
 
   return (
     <Box sx={{ minWidth: 120, m: 2 }}>
@@ -33,7 +33,9 @@ export function SelectMUI(props: ItemProps) {
           onChange={handleChange}
         >
           {props.items.map((item) => (
-              <MenuItem key={item.codigo} value={item.codigo}>{item.nome}</MenuItem>
+            <MenuItem key={item.codigo} value={item.codigo}>
+              {item.nome}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
