@@ -10,6 +10,8 @@ import { CarYear } from "./CarYear";
 
 import { useRouter } from "next/router";
 
+import {api} from "../utils"
+
 export function SearchCar() {
   const router = useRouter();
 
@@ -19,7 +21,7 @@ export function SearchCar() {
   const handleSubmit = async () => {
     if (year.codigo !== "") {
       await fetch(
-        `${process.env.NEXT_PUBLIC_URL_API_FIPE}/marcas/${brand.codigo}/modelos/${model.codigo}/anos/${year.codigo}`
+        `${api}/marcas/${brand.codigo}/modelos/${model.codigo}/anos/${year.codigo}`
       )
         .then((response) => response.json())
         .then((response) => setCar(response));

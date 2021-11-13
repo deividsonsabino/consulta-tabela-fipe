@@ -3,6 +3,8 @@ import React, {useState, useContext, useEffect} from "react";
 import { SelectMUI } from "../Widgets/Select";
 import { Context } from '../../context/'
 
+import {api} from "../../utils"
+
 interface Brand {
     codigo: string;
     nome: string;
@@ -13,7 +15,7 @@ export function CarBrand() {
     const [brands, setBrands] = useState<Brand[]>([]);
 
     const getBrands = async () => {
-        await fetch(`${process.env.NEXT_PUBLIC_URL_API_FIPE}/marcas`)
+        await fetch(`${api}/marcas`)
           .then((response) => response.json())
             .then((response) => setBrands(response));
             setYear({ codigo: ""})

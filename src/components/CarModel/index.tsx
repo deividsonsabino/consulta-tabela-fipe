@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../../context";
 
+import {api} from "../../utils"
+
 import { SelectMUI } from "../Widgets/Select";
 
 interface CarModel {
@@ -16,7 +18,7 @@ export function CarModel() {
     const getModels = async () => {
         if (brand.codigo !== "") {
           await fetch(
-            `${process.env.NEXT_PUBLIC_URL_API_FIPE}/marcas/${brand.codigo}/modelos`
+            `${api}/marcas/${brand.codigo}/modelos`
           )
             .then((response) => response.json())
             .then((response) => setModels(response.modelos));
