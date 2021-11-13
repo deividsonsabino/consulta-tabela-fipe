@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 
-import { Container, Typography, Box, Grid, Button } from "@mui/material";
+import { Typography, Box, Grid, Button } from "@mui/material";
 
 import { Context } from "../context";
 
@@ -20,13 +20,16 @@ export default function Index() {
 
   return (
     <Grid
-      container
       sx={{ bgcolor: "#dcf5f2", height: "100vh", py: 25 }}
-      align="center"
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
     >
-      <Container>
+      <Grid item sx={{ textAlign: "center" }}>
         {car.Modelo !== "" ? (
-          <>
+          <Grid >
             <Typography variant="h4" component="h1" gutterBottom>
               {`Tabela Fipe: ${car?.Modelo} ${car?.AnoModelo}`}
             </Typography>
@@ -34,8 +37,9 @@ export default function Index() {
               sx={{
                 color: "#FFF",
                 bgcolor: "#00a38c",
-                maxWidth: "170px",
                 borderRadius: 6,
+                py: 1,
+                m: 2,
               }}
               component="h2"
             >
@@ -44,7 +48,7 @@ export default function Index() {
             <Typography variant="subtitle1" component="h2">
               Este é o preço de compra do veículo
             </Typography>
-          </>
+          </Grid>
         ) : (
           <Typography variant="h4" component="h1" gutterBottom>
             Nenhum veículo encontrado
@@ -53,7 +57,7 @@ export default function Index() {
         <Button onClick={back} color="inherit">
           Voltar
         </Button>
-      </Container>
+      </Grid>
     </Grid>
   );
 }

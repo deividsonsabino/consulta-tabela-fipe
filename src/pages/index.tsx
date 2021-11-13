@@ -1,16 +1,21 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+
+import { Typography, Box, Grid } from "@mui/material";
 
 import { SearchCar } from "../components/SearchCar";
 
 export default function Index() {
   return (
-    <Grid sx={{ bgcolor: "#f9f6fc", height: "100vh", py:20 }} align="center">
-      <Container>
-        <Box sx={{ my: 0, mx: 0 }}>
+    <Grid
+      sx={{ bgcolor: "#f9f6fc", height: "100vh" }}
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Grid item>
+        <Box sx={{ my: 2, mx: 0, textAlign:"center" }}>
           <Typography variant="h4" component="h1" gutterBottom>
             Tabela Fipe
           </Typography>
@@ -18,10 +23,10 @@ export default function Index() {
             Consulte o valor de um veículo de forma gratuita
           </Typography>
         </Box>
-        <Box maxWidth="sm" sx={{bgcolor:"#FFF"}}>
+        <Box sx={{ bgcolor: "#FFF", textAlign:"center" }}>
           <SearchCar />
         </Box>
-      </Container>
+      </Grid>
     </Grid>
   );
 }

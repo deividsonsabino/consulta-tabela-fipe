@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../context";
 
+import {api} from "../../utils"
+
 import { SelectMUI } from "../Widgets/Select";
 
 interface CarYear {
@@ -16,7 +18,7 @@ export function CarYear() {
     const getYears = async () => {
         if (model.codigo !== "") {
           await fetch(
-            `${process.env.NEXT_PUBLIC_URL_API_FIPE}/marcas/${brand.codigo}/modelos/${model.codigo}/anos`
+            `${api}/marcas/${brand.codigo}/modelos/${model.codigo}/anos`
           )
             .then((response) => response.json())
             .then((response) => setYears(response));
