@@ -4,7 +4,7 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from './theme/theme';
+import theme from '../theme/theme';
 import createEmotionCache from '../createEmotionCache';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -19,7 +19,7 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>My page</title>
+        <title>Tabela Fipe</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       </Head>
