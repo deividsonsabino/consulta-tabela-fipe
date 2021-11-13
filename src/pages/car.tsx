@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 
-import { Container, Typography,  Box, Grid, Button } from "@mui/material";
+import { Container, Typography, Box, Grid, Button } from "@mui/material";
 
 import { Context } from "../context";
 
@@ -19,20 +19,40 @@ export default function Index() {
   };
 
   return (
-    <Grid container sx={{ bgcolor: "#dcf5f2", height: "100vh", py:25 }} align="center">
+    <Grid
+      container
+      sx={{ bgcolor: "#dcf5f2", height: "100vh", py: 25 }}
+      align="center"
+    >
       <Container>
-        <Box sx={{ my: 0, mx: 0 }}>
+        {car.Modelo !== "" ? (
+          <>
+            <Typography variant="h4" component="h1" gutterBottom>
+              {`Tabela Fipe: ${car?.Modelo} ${car?.AnoModelo}`}
+            </Typography>
+            <Box
+              sx={{
+                color: "#FFF",
+                bgcolor: "#00a38c",
+                maxWidth: "170px",
+                borderRadius: 6,
+              }}
+              component="h2"
+            >
+              {car?.Valor}
+            </Box>
+            <Typography variant="subtitle1" component="h2">
+              Este é o preço de compra do veículo
+            </Typography>
+          </>
+        ) : (
           <Typography variant="h4" component="h1" gutterBottom>
-            {`Tabela Fipe: ${car?.Modelo} ${car?.AnoModelo}`}
+            Nenhum veículo encontrado
           </Typography>
-          <Box sx={{color: "#FFF", bgcolor: "#00a38c", maxWidth:"170px", borderRadius:6}} component="h2">
-            {car?.Valor}
-          </Box>
-          <Typography variant="subtitle1" component="h2">
-            Este é o preço de compra do veículo
-          </Typography>
-          <Button onClick={back} color="inherit">Voltar</Button>
-        </Box>
+        )}
+        <Button onClick={back} color="inherit">
+          Voltar
+        </Button>
       </Container>
     </Grid>
   );
